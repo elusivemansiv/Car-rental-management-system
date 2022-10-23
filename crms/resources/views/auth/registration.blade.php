@@ -42,7 +42,7 @@ use Illuminate\Support\Facades\Request;
                     <label class="form-label" for="form3Example1c">Choose Role</label>  <br>
 
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="role" value="Customer"@if(Request::old('role')=="Customer") checked @endif >
+                        <input class="form-check-input" type="radio" name="role" value="Customer" @if(Request::old('role')=="Customer") checked @endif >
                         <label class="form-check-label" >Customer</label>
                       </div>
 

@@ -91,19 +91,22 @@ class CustomAuthController extends Controller
         // }
 
 
-
+        $uname="";
         if($user){
             if(Hash::check($request->password, $user->password)){
               if($user->type=='Customer'){
-                   $request->session()->put('loginId', $user->id);
+                $request->session()->put('customer', $user->username);
+                   
                  return redirect('dashboard_customer');
               }
               elseif($user->type=='Renter'){
-                  $request->session()->put('loginId', $user->id);
-                  return redirect('dashboard_renter');
+                $request->session()->put('renter', $user->username);
+                  
+                  return redirect()->route('dashboard_renter');
               }
               else{
-                  $request->session()->put('loginId', $user->id);
+                $request->session()->put('admin', $user->username);
+                 
                   return redirect('dashboard_admin');
               }
   
@@ -134,12 +137,12 @@ class CustomAuthController extends Controller
     public function dashboard_renter()
     {
         
-        return view('dashboard_renter');
+        return view('Renter_Pages.dashboard_renter');
     }
 
     public function logout()
     {
-        
+        session()->flush();
         return redirect('login');
     }
 }

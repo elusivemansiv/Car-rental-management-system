@@ -21,12 +21,12 @@
                 <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Login</p>
 
                 <form action="{{route('login-user')}}" method="post" class="mx-1 mx-md-4">
-                @if(Session::has('success'))
+                <!-- @if(Session::has('success'))
                   <div class="alert alert-success">{{Session::get('success')}}</div>
                   @endif
                   @if(Session::has('fail'))
                   <div class="alert alert-danger">{{Session::get('fail')}}</div>
-                  @endif
+                  @endif -->
                 {{@csrf_field()}}
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
